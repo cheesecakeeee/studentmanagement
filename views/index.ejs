@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        td{
+            width: 200px;
+            line-height: 40px;
+        }
+        td,table{
+            border: 1px solid #000;
+        }
+    </style>
+<body>
+    <h1>显示所有学生</h1>
+    <a href="/add" target="_blank">添加学生</a>
+    <table>
+        <thead>
+            <tr>
+                <td>学号：</td>
+                <td>姓名：</td>
+                <td>年龄：</td>
+                <td>性别：</td>
+                <td>操作：</td>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+                for(var i=0;i<students.length;i++){
+            %>
+            <tr>
+                <td><%= students[i].sid%></td>
+                <td><%= students[i].name%></td>
+                <td><%= students[i].age%></td>
+                <td><%= students[i].sex%></td>
+                <td>
+                    <a href="/edit/<%= students[i].sid%>">修改</a>
+                    <a href="/remove/<%= students[i].sid%>">删除</a>
+                </td>
+            </tr>
+            <%
+                }
+            %>
+        </tbody>
+    </table>
+</body>
+</html>
